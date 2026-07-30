@@ -15,6 +15,7 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const navDots = document.getElementById('navDots');
 const navCounter = document.getElementById('navCounter');
+const backBtn = document.getElementById('backBtn');
 
 // ══════════════════════════════════════════════
 // PARTICLES SYSTEM
@@ -117,10 +118,20 @@ function enterApp() {
   setTimeout(() => {
     splash.style.display = 'none';
     app.classList.add('app--visible');
+    if (backBtn) backBtn.classList.add('back-btn--visible');
     showSlide(0);
     buildNavDots();
     updateProgress();
   }, 1000);
+}
+
+function backToSplash() {
+  if (backBtn) backBtn.classList.remove('back-btn--visible');
+  app.classList.remove('app--visible');
+  splash.style.display = 'flex';
+  requestAnimationFrame(() => {
+    splash.classList.remove('splash--exit');
+  });
 }
 
 // ══════════════════════════════════════════════
@@ -239,17 +250,13 @@ document.addEventListener('keydown', (e) => {
     }
   }
 
-  switch (e.key) {
-    case 'ArrowRight':
-    case 'ArrowDown':
-      e.preventDefault();
-      nextSlide();
-      break;
-    case 'ArrowLeft':
-    case 'ArrowUp':
-      e.preventDefault();
-      prevSlide();
-      break;
+  // Only use Left/Right arrows for slide changes so Up/Down arrows can scroll vertically
+  if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    nextSlide();
+  } else if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    prevSlide();
   }
 });
 
@@ -266,23 +273,11 @@ document.addEventListener('touchend', (e) => {
   const dx = e.changedTouches[0].clientX - touchStartX;
   const dy = e.changedTouches[0].clientY - touchStartY;
 
-  // Only horizontal swipes
+  // Only horizontal swipes trigger slide changes, vertical swipes scroll naturally
   if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
     if (dx < 0) nextSlide();
     else prevSlide();
   }
-}, { passive: true });
-
-// ── Mouse Wheel Navigation ──
-let wheelTimeout = null;
-document.addEventListener('wheel', (e) => {
-  if (splash.style.display !== 'none') return;
-  if (wheelTimeout) return;
-
-  wheelTimeout = setTimeout(() => { wheelTimeout = null; }, 800);
-
-  if (e.deltaY > 0) nextSlide();
-  else if (e.deltaY < 0) prevSlide();
 }, { passive: true });
 
 // ══════════════════════════════════════════════
