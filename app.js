@@ -112,6 +112,7 @@ animateParticles();
 // ══════════════════════════════════════════════
 
 function enterApp() {
+  splash.classList.remove('splash--returned');
   splash.classList.add('splash--exit');
 
   setTimeout(() => {
@@ -126,6 +127,7 @@ function enterApp() {
 function backToSplash() {
   app.classList.remove('app--visible');
   splash.style.display = 'flex';
+  splash.classList.add('splash--returned');
   requestAnimationFrame(() => {
     splash.classList.remove('splash--exit');
   });

@@ -325,6 +325,22 @@ body {
   100% { opacity: 0; transform: scale(1.1); pointer-events: none; }
 }
 
+/* Splash Return */
+.splash--returned {
+  animation: fadeIn 0.8s var(--transition-smooth) forwards;
+  opacity: 1;
+}
+
+.splash--returned .splash__uni,
+.splash--returned .splash__title,
+.splash--returned .splash__subtitle,
+.splash--returned .splash__member,
+.splash--returned .splash__cta {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+}
+
 /* ══════════════════════════════════════════════
    MAIN CONTENT / SLIDES
    ══════════════════════════════════════════════ */
