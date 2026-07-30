@@ -773,57 +773,11 @@ body {
   gap: 1rem;
   z-index: 100;
   padding: 0.6rem;
-  background: rgba(10, 10, 26, 0.85);
+  background: var(--glass-strong);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: 1px solid var(--glass-border);
   border-radius: 100px;
-}
-
-/* ── Back to Intro Button ── */
-.back-btn {
-  position: fixed;
-  top: 1.5rem;
-  left: 1.5rem;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: rgba(10, 10, 26, 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 100px;
-  color: var(--text-secondary);
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s var(--transition-smooth);
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.back-btn--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.back-btn:hover {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: white;
-  transform: translateY(0) scale(1.05);
-}
-
-.back-btn__arrow {
-  font-size: 1.1rem;
-  transition: transform 0.3s;
-}
-
-.back-btn:hover .back-btn__arrow {
-  transform: translateX(-3px);
 }
 
 .nav-btn {

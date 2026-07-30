@@ -15,7 +15,6 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const navDots = document.getElementById('navDots');
 const navCounter = document.getElementById('navCounter');
-const backBtn = document.getElementById('backBtn');
 
 // ══════════════════════════════════════════════
 // PARTICLES SYSTEM
@@ -118,7 +117,6 @@ function enterApp() {
   setTimeout(() => {
     splash.style.display = 'none';
     app.classList.add('app--visible');
-    if (backBtn) backBtn.classList.add('back-btn--visible');
     showSlide(0);
     buildNavDots();
     updateProgress();
@@ -126,7 +124,6 @@ function enterApp() {
 }
 
 function backToSplash() {
-  if (backBtn) backBtn.classList.remove('back-btn--visible');
   app.classList.remove('app--visible');
   splash.style.display = 'flex';
   requestAnimationFrame(() => {
@@ -179,6 +176,8 @@ function nextSlide() {
 function prevSlide() {
   if (currentSlide > 0) {
     showSlide(currentSlide - 1);
+  } else if (currentSlide === 0) {
+    backToSplash();
   }
 }
 
@@ -190,7 +189,7 @@ function goToSlide(index) {
 
 // ── Navigation State ──
 function updateNavState() {
-  prevBtn.disabled = currentSlide === 0;
+  prevBtn.disabled = false;
   nextBtn.disabled = currentSlide === totalSlides - 1;
   navCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
 
