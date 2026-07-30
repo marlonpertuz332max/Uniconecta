@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="UniConecta — Plataforma virtual para la comunidad universitaria. Alquiler de equipos, comida con descuento, tutorías y apuntes." />
+  <title>UniConecta — Plataforma Universitaria</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══ Animated Background ═══ -->
+  <div class="bg-animated">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+  </div>
+  <canvas id="particles"></canvas>
+
+  <!-- ═══════════════════════════════════════════
+       SPLASH / INTRO ANIMATION
+       ═══════════════════════════════════════════ -->
+  <div class="splash" id="splash">
+    <div class="splash__bg">
+      <div class="splash__liquid splash__liquid--1"></div>
+      <div class="splash__liquid splash__liquid--2"></div>
+      <div class="splash__liquid splash__liquid--3"></div>
+    </div>
+
+    <div class="splash__content">
+      <p class="splash__uni">Institución Universitaria de Barranquilla</p>
+      <h1 class="splash__title">UniConecta</h1>
+      <p class="splash__subtitle">Plataforma virtual para la comunidad universitaria</p>
+
+      <div class="splash__team">
+        <span class="splash__member">✦ Nicole Castilla</span>
+        <span class="splash__member">✦ Michell Caicedo</span>
+        <span class="splash__member">✦ Alejandra Bolívar</span>
+        <span class="splash__member">✦ Billy Méndez</span>
+        <span class="splash__member">✦ Isaí Peña</span>
+        <span class="splash__member">✦ Jesús Brango</span>
+        <span class="splash__member">✦ Marlon Pertuz</span>
+        <span class="splash__member">✦ Joshua Castro</span>
+      </div>
+
+      <div class="splash__cta">
+        <button class="splash__enter" id="enterBtn" onclick="enterApp()">
+          Descubrir el proyecto
+          <span class="splash__enter-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN APP — SLIDES
+       ═══════════════════════════════════════════ -->
+  <main class="app" id="app">
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- ─── Slide 1: La Idea ─── -->
+    <section class="slide" id="slide-0" data-slide="0">
+      <div class="glass-card">
+        <div class="liquid-morph" style="top:-80px;right:-60px;"></div>
+        <div class="slide-layout">
+          <div class="slide-text">
+            <span class="section-number">01</span>
+            <p class="section-label">El origen</p>
+            <h2 class="section-title">Una sola plataforma<br>para la vida universitaria</h2>
+            <span class="section-author">Nicole Castilla</span>
+
+            <div class="highlights">
+              <div class="highlight">
+                <span class="highlight__icon">🎯</span>
+                <h3 class="highlight__title">¿Qué es?</h3>
+                <p class="highlight__text">Una web que reúne alquiler de equipos, comida con descuento, tutorías y apuntes.</p>
+              </div>
+              <div class="highlight">
+                <span class="highlight__icon">🎓</span>
+                <h3 class="highlight__title">¿Para quién?</h3>
+                <p class="highlight__text">Los estudiantes de la comunidad universitaria de Barranquilla.</p>
+              </div>
+              <div class="highlight">
+                <span class="highlight__icon">💡</span>
+                <h3 class="highlight__title">¿Qué resuelve?</h3>
+                <p class="highlight__text">Servicios dispersos, equipos olvidados, comida desperdiciada y tutorías difíciles de hallar.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <img src="img/idea.png" alt="Ilustración de la idea UniConecta" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Slide 2: Productividad ─── -->
+    <section class="slide" id="slide-1" data-slide="1">
+      <div class="glass-card">
+        <div class="liquid-morph" style="bottom:-100px;left:-80px;"></div>
+        <div class="slide-layout">
+          <div class="slide-text">
+            <span class="section-number">02</span>
+            <p class="section-label">Eficiencia</p>
+            <h2 class="section-title">Más resultados<br>con menos recursos</h2>
+            <span class="section-author">Billy Méndez · Marlon Pertuz</span>
+
+            <div class="features">
+              <div class="feature">
+                <div class="feature__icon">⚡</div>
+                <div>
+                  <h3 class="feature__title">Tecnología</h3>
+                  <p class="feature__desc">Una sola app automatiza reservas, pagos y avisos: atiende a miles de estudiantes sin sumar personal. El costo por nuevo usuario es casi cero.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature__icon feature__icon--cyan">♻️</div>
+                <div>
+                  <h3 class="feature__title">Reducción de desperdicios</h3>
+                  <p class="feature__desc">La comida no vendida se convierte en ingreso; alquilar evita comprar equipos que se usan una sola vez.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature__icon feature__icon--pink">📐</div>
+                <div>
+                  <h3 class="feature__title">Estandarización</h3>
+                  <p class="feature__desc">Un mismo proceso de alquiler y reserva para todos: rápido, repetible y fácil de escalar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <img src="img/productivity.png" alt="Ilustración de productividad" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Slide 3: Estrategia Competitiva ─── -->
+    <section class="slide" id="slide-2" data-slide="2">
+      <div class="glass-card">
+        <div class="liquid-morph" style="top:-60px;left:40%;"></div>
+        <div class="slide-layout">
+          <div class="slide-text">
+            <span class="section-number">03</span>
+            <p class="section-label">Competencia</p>
+            <h2 class="section-title">Enfoque con<br>diferenciación</h2>
+            <span class="section-author">Joshua Castro · Jesús Brango</span>
+
+            <div class="features">
+              <div class="feature">
+                <div class="feature__icon">🏆</div>
+                <div>
+                  <h3 class="feature__title">Nuestra elección estratégica</h3>
+                  <p class="feature__desc">Atacamos un nicho —la comunidad universitaria— y ganamos por diferenciación. No competimos en precio, competimos en valor.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature__icon feature__icon--pink">🔍</div>
+                <div>
+                  <h3 class="feature__title">¿Por qué esta estrategia?</h3>
+                  <p class="feature__desc">Una microempresa con poco capital no puede ganar una guerra de precios contra los gigantes. Sí puede dominar un nicho que conoce a fondo.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature__icon feature__icon--cyan">🔗</div>
+                <div>
+                  <h3 class="feature__title">Integración única</h3>
+                  <p class="feature__desc">Integramos servicios que otros ofrecen sueltos o no ofrecen: una app genérica no se adapta al campus.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <img src="img/strategy.png" alt="Ilustración de estrategia" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Slide 4: Valor Percibido ─── -->
+    <section class="slide" id="slide-3" data-slide="3">
+      <div class="glass-card">
+        <div class="liquid-morph" style="bottom:-80px;right:-40px;"></div>
+        <div class="slide-layout">
+          <div class="slide-text">
+            <span class="section-number">04</span>
+            <p class="section-label">Propuesta de valor</p>
+            <h2 class="section-title">¿Por qué el estudiante<br>elige UniConecta?</h2>
+            <span class="section-author">Isaí Peña</span>
+
+            <div class="value-cards">
+              <div class="value-card value-card--func">
+                <div class="value-card__icon">🛠️</div>
+                <h3 class="value-card__title">Funcional</h3>
+                <p class="value-card__desc">Ahorra dinero y tiempo: tutor, calculadora, comida barata. Problemas concretos, soluciones reales.</p>
+              </div>
+              <div class="value-card value-card--emoc">
+                <div class="value-card__icon">💜</div>
+                <h3 class="value-card__title">Emocional</h3>
+                <p class="value-card__desc">Tranquilidad antes de un examen y sentido de pertenencia a una comunidad que te apoya.</p>
+              </div>
+              <div class="value-card value-card--simb">
+                <div class="value-card__icon">✨</div>
+                <h3 class="value-card__title">Simbólico</h3>
+                <p class="value-card__desc">Ser un estudiante práctico, conectado y consciente del desperdicio. Identidad universitaria moderna.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <img src="img/value.png" alt="Ilustración de valor percibido" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Slide 5: Globalización — Oportunidad ─── -->
+    <section class="slide" id="slide-4" data-slide="4">
+      <div class="glass-card">
+        <div class="liquid-morph" style="top:30%;left:-60px;"></div>
+        <div class="slide-layout">
+          <div class="slide-text">
+            <span class="section-number">05</span>
+            <p class="section-label">Visión global</p>
+            <h2 class="section-title">La oportunidad<br>de escalar</h2>
+            <span class="section-author">Alejandra Bolívar</span>
+
+            <div class="features">
+              <div class="feature">
+                <div class="feature__icon">☁️</div>
+                <div>
+                  <h3 class="feature__title">Plataformas y nube</h3>
+                  <p class="feature__desc">Herramientas globales para construir y escalar a bajo costo. Infraestructura lista para crecer.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature__icon feature__icon--pink">📱</div>
+                <div>
+                  <h3 class="feature__title">Redes sociales</h3>
+                  <p class="feature__desc">Marketing barato y crecimiento viral entre estudiantes. La comunidad se expande orgánicamente.</p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature__icon feature__icon--cyan">🌎</div>
+                <div>
+                  <h3 class="feature__title">Modelo replicable</h3>
+                  <p class="feature__desc">Llevar UniConecta a otras universidades y ciudades: nuestro sueño a 5 años.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <img src="img/global.png" alt="Ilustración de globalización" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Slide 6: Globalización — Riesgos ─── -->
+    <section class="slide" id="slide-5" data-slide="5">
+      <div class="glass-card">
+        <div class="liquid-morph" style="top:-50px;right:-80px;"></div>
+        <div class="slide-layout">
+          <div class="slide-text">
+            <span class="section-number">06</span>
+            <p class="section-label">Análisis de riesgos</p>
+            <h2 class="section-title">El riesgo y cómo<br>lo enfrentamos</h2>
+            <span class="section-author">Alejandra Bolívar</span>
+
+            <div class="risk-grid">
+              <div class="risk-box risk-box--danger">
+                <h3 class="risk-box__title">⚠️ El riesgo</h3>
+                <ul class="risk-box__list">
+                  <li>Competencia internacional con mucho capital</li>
+                  <li>Una super-app podría copiar el modelo</li>
+                  <li>Plataformas globales entrando al nicho</li>
+                </ul>
+              </div>
+              <div class="risk-box risk-box--safe">
+                <h3 class="risk-box__title">🛡️ Cómo lo mitigamos</h3>
+                <ul class="risk-box__list">
+                  <li>Profundizar el nicho: alianzas con la universidad e integración local</li>
+                  <li>Fidelizar la comunidad y crear efecto de red: más usuarios, más valor</li>
+                  <li>Ser rápidos, ligeros y de bajo costo para responder antes que ellos</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="slide-visual">
+            <img src="img/global.png" alt="Riesgos y mitigación" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Slide 7: Conclusión ─── -->
+    <section class="slide" id="slide-6" data-slide="6">
+      <div class="glass-card">
+        <div class="liquid-morph" style="top:50%;left:50%;transform:translate(-50%,-50%);width:300px;height:300px;"></div>
+        <div class="conclusion">
+          <span class="section-number" style="font-size:5rem;">✦</span>
+          <p class="section-label" style="margin-top:1rem;">Conclusión</p>
+          <h2 class="section-title" style="margin-bottom:1.5rem;">UniConecta gana porque resuelve lo que los gigantes ignoran</h2>
+          <span class="section-author">Michell Caicedo</span>
+
+          <p class="conclusion__quote">
+            Convierte el <em>desperdicio en ahorro</em> y la <em>dispersión en comunidad</em>.
+          </p>
+
+          <div class="conclusion__thanks">🎓</div>
+          <p class="conclusion__author" style="font-size:1.5rem;font-weight:700;color:var(--primary-light);">¡Gracias!</p>
+          <p class="conclusion__author" style="margin-top:0.5rem;">
+            Nicole · Michell · Alejandra · Billy · Isaí · Jesús · Marlon · Joshua
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Navigation Controls ─── -->
+    <nav class="nav-controls" id="navControls">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()" disabled aria-label="Anterior">←</button>
+      <div class="nav-dots" id="navDots"></div>
+      <span class="nav-counter" id="navCounter">1 / 7</span>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()" aria-label="Siguiente">→</button>
+    </nav>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
