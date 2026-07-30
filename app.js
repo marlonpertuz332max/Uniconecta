@@ -142,31 +142,26 @@ function showSlide(index) {
   isTransitioning = true;
 
   const slides = document.querySelectorAll('.slide');
-  const prevIndex = currentSlide;
 
   slides.forEach((slide, i) => {
-    slide.classList.remove('slide--active', 'slide--exit-left');
-    if (i === prevIndex && i !== index) {
-      slide.classList.add(index > prevIndex ? 'slide--exit-left' : '');
+    slide.classList.remove('slide--active', 'slide--past', 'slide--future');
+    if (i === index) {
+      slide.classList.add('slide--active');
+      slide.scrollTop = 0; // Reset scroll position when showing slide
+    } else if (i < index) {
+      slide.classList.add('slide--past');
+    } else {
+      slide.classList.add('slide--future');
     }
   });
 
   currentSlide = index;
+  updateNavState();
+  updateProgress();
 
-  // Small delay for CSS transition
-  requestAnimationFrame(() => {
-    slides[currentSlide].classList.add('slide--active');
-
-    // Animate internal elements
-    animateSlideContent(slides[currentSlide]);
-
-    updateNavState();
-    updateProgress();
-
-    setTimeout(() => {
-      isTransitioning = false;
-    }, 600);
-  });
+  setTimeout(() => {
+    isTransitioning = false;
+  }, 400);
 }
 
 function nextSlide() {
@@ -214,27 +209,6 @@ function buildNavDots() {
 function updateProgress() {
   const pct = ((currentSlide + 1) / totalSlides) * 100;
   progressBar.style.width = `${pct}%`;
-}
-
-// ── Slide Content Animation ──
-function animateSlideContent(slideEl) {
-  const elements = slideEl.querySelectorAll(
-    '.section-number, .section-label, .section-title, .section-author, .feature, .highlight, .value-card, .risk-box, .conclusion__quote, .conclusion__thanks, .conclusion__author, .slide-visual img'
-  );
-
-  elements.forEach((el, i) => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(25px)';
-    el.style.transition = 'none';
-
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        el.style.transition = `opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${i * 0.07}s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${i * 0.07}s`;
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      });
-    });
-  });
 }
 
 // ══════════════════════════════════════════════

@@ -374,13 +374,14 @@ body {
   justify-content: center;
   padding: 2rem 2rem 6rem 2rem;
   opacity: 0;
-  transform: translateX(100px);
+  transform: translateX(60px);
   pointer-events: none;
-  transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+  transition: opacity 0.5s var(--transition-smooth), transform 0.5s var(--transition-smooth);
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) transparent;
+  z-index: 1;
 }
 
 .slide::-webkit-scrollbar {
@@ -400,11 +401,21 @@ body {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
+  z-index: 10;
 }
 
-.slide--exit-left {
+.slide--past {
   opacity: 0;
-  transform: translateX(-100px);
+  transform: translateX(-60px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.slide--future {
+  opacity: 0;
+  transform: translateX(60px);
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ── Glass Card ── */
